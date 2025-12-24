@@ -3,31 +3,99 @@
 <html>
 <head lang="it">
     <meta charset="UTF-8">
-    <title>  randomUser.me  </title>
+    <title>RandomUser - Oricco</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="./index.css" />
     <script src="./axios@1.13.min.js"></script>
-	<!-- script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"-->
 	</script>
     <script src="./libreria.js"></script>
     <script defer src="./index.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-	<h1>Random User</h1>
-	<button> Richiedi 20 persone di genere maschile </button>
-	<table>	
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>City</th>
-				<th>State</th>
-				<th>Nat</th>				
-			</tr>
-		</thead>
-		<tbody>
-		
-		</tbody>
-	</table>
-
+	<div class="container">
+		<div class="text-center">
+			<h1>Random User</h1>			
+		</div>
+		<div>
+			<div><b>Genere</b></div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio" name="chkGenere" value="male" id="chkGenereM">
+				<label class="form-check-label" for="chkGenereM">
+					M
+				</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio" name="chkGenere" value="female" id="chkGenereF">
+				<label class="form-check-label" for="chkGenereF">
+					F
+				</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio" name="chkGenere" value="" id="chkGenereT" checked>
+				<label class="form-check-label" for="chkGenereT">
+					Tutti
+				</label>
+			</div>
+		</div>
+		<div>
+			<b><label for="PeopleSlider" class="form-label">Numero persone</label></b>: <span id="NPeople">1</span>
+			<input type="range" class="form-range" min="1" max="20" value="1" id="PeopleSlider" oninput="document.getElementById('NPeople').innerHTML = this.value;">
+		</div>
+		<div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input chkNation" type="checkbox" value="FI" id="chkFinland">
+				<label class="form-check-label" for="chkFinland">
+					Finlandia
+				</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input chkNation" type="checkbox" value="DE" id="chkGermany">
+				<label class="form-check-label" for="chkGermany">
+					Germania
+				</label>
+			</div>
+		</div>
+		<div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input chkNation" type="checkbox" value="NO" id="chkNorway">
+				<label class="form-check-label" for="chkNorway">
+					Norvegia
+				</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input chkNation" type="checkbox" value="IR" id="chkIran">
+				<label class="form-check-label" for="chkIran">
+					Iran
+				</label>
+			</div>
+		</div>
+		<div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input chkNation" type="checkbox" value="DK" id="chkDenmark">
+				<label class="form-check-label" for="chkDenmark">
+					Danimarca
+				</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input chkNation" type="checkbox" value="NZ" id="chkNewZeland">
+				<label class="form-check-label" for="chkNewZeland">
+					Nuova Zelanda
+				</label>
+			</div>
+			
+		</div>
+		<div class="text-center">
+			<button class="btn btn-primary">Carica lista</button>
+		</div>
+		<br>
+		<div class="text-center">
+			<span>Persona <b id="lblCorr">...</b> di <b id="lblTot">...</b></span>
+			&nbsp;&nbsp;
+			<button class="btn btn-info" id="btnIndietro" disabled onclick="loadPerson(--people_ix);">Indietro</button>
+			<button class="btn btn-info" id="btnAvanti" disabled onclick="loadPerson(++people_ix);">Avanti</button>
+		</div>
+	</div>
 </body>
 </html>
