@@ -51,8 +51,13 @@ function loadPerson(index) {
         alert("Elenco finito!");
         return;
     }
-
     lblCorr.innerHTML = people_ix+1;
+
+    let container = document.getElementById("main");
+    container.innerHTML = `
+        <img src='${person.picture.medium}'/>
+        <p>nome: ${person.name.title}. ${person.name.first} ${person.name.last}</p>
+    `;
 }
 
 function checkRadios()
